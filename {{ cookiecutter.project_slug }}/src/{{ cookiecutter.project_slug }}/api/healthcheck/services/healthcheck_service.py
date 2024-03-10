@@ -1,6 +1,6 @@
-from web_api_template.core.di_injector import inject
-from web_api_template.core.settings import settings
-from web_api_template.domain.repository import HealthcheckRepository
+from {{ cookiecutter.project_slug }}.core.di_injector import inject
+from {{ cookiecutter.project_slug }}.core.settings import settings
+from {{ cookiecutter.project_slug }}.domain.repository import HealthcheckRepository
 
 
 class HealthcheckService:

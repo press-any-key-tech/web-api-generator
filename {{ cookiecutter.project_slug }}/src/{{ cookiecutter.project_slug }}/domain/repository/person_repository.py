@@ -1,7 +1,7 @@
 from abc import ABCMeta, abstractmethod
 from typing import List, Optional
 
-from web_api_template.domain.entities import Person, PersonFilter
+from {{ cookiecutter.project_slug }}.domain.entities import Person, PersonFilter
 
 
 class PersonRepository(metaclass=ABCMeta):

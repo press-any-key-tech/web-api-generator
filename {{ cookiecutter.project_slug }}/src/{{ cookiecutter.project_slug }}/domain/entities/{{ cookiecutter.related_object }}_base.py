@@ -2,9 +2,9 @@ from typing import List, Optional
 
 from pydantic import BaseModel, Field, field_validator, validator
 
-from web_api_template.domain.types import PolicyStatusEnum
+from {{ cookiecutter.project_slug }}.domain.types import PolicyStatusEnum
 
-from web_api_template.core.domain.validators import ksuid_validator
+from {{ cookiecutter.project_slug }}.core.domain.validators import ksuid_validator
 
 
 class PolicyBase(BaseModel):

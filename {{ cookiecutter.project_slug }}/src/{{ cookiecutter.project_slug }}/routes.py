@@ -4,12 +4,12 @@
 from fastapi import FastAPI
 
 # Healthcheck (do not touch)
-from web_api_template.api.healthcheck.api_healthcheck import (
+from {{ cookiecutter.project_slug }}.api.healthcheck.api_healthcheck import (
     api_router as healthcheck_router,
 )
-from web_api_template.api.v1.persons.router import api_router as persons_v1_router
-from web_api_template.api.v1.policies.router import api_router as policies_v1_router
-from web_api_template.core.logging import logger
+from {{ cookiecutter.project_slug }}.api.v1.persons.router import api_router as persons_v1_router
+from {{ cookiecutter.project_slug }}.api.v1.policies.router import api_router as policies_v1_router
+from {{ cookiecutter.project_slug }}.core.logging import logger
 
 
 def include_routers(app: FastAPI):

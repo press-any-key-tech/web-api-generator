@@ -2,21 +2,20 @@ from typing import List, Optional
 
 from pydantic import BaseModel, EmailStr, Field, field_validator
 
-from web_api_template.domain.entities import Address
-from web_api_template.domain.entities.policy import Policy
+from {{ cookiecutter.project_slug }}.domain.entities.{{ cookiecutter.related_object }} import {{ cookiecutter.related_object.capitalize() }}
 
-from web_api_template.core.domain.validators import ksuid_validator
+from {{ cookiecutter.project_slug }}.core.domain.validators import ksuid_validator
 
 
-class PersonBase(BaseModel):
+class {{ cookiecutter.main_object.capitalize() }}Base(BaseModel):
     """
-    Represents a data structure for a person.
+    Represents a data structure.
     """
 
     id: Optional[str] = Field(
         default=None,
         json_schema_extra={
-            "description": "Unique Person ID (ksuid)",
+            "description": "Unique ID (ksuid)",
             "example": "0ujsswThIGTUYm2K8FjOOfXtY1K",
         },
     )
@@ -25,7 +24,7 @@ class PersonBase(BaseModel):
         ...,
         max_length=500,
         json_schema_extra={
-            "description": "Person name",
+            "description": "Name",
             "example": "John",
         },
     )
@@ -34,7 +33,7 @@ class PersonBase(BaseModel):
         ...,
         max_length=500,
         json_schema_extra={
-            "description": "Person surname/s",
+            "description": "Surname/s",
             "example": "Doe",
         },
     )
@@ -43,19 +42,14 @@ class PersonBase(BaseModel):
         ...,
         max_length=150,
         json_schema_extra={
-            "description": "Person email",
+            "description": "Email",
             "example": "johndoe@mail.com",
         },
     )
 
-    addresses: Optional[List[Address]] = Field(
+    {{ cookiecutter.related_object_plural }}: Optional[List[{{ cookiecutter.related_object.capitalize() }}]] = Field(
         default=[],
-        json_schema_extra={"description": "Person addresses"},
-    )
-
-    policies: Optional[List[Policy]] = Field(
-        default=[],
-        json_schema_extra={"description": "Person policies"},
+        json_schema_extra={"description": "{{ cookiecutter.related_object_plural.capitalize() }}"},
     )
 
     @field_validator("id")

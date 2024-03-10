@@ -2,7 +2,7 @@ from typing import Any, Tuple
 
 from fastapi import Depends, HTTPException, status
 
-from web_api_template.core.logging import logger
+from {{ cookiecutter.project_slug }}.core.logging import logger
 
 from .jw_types import JWTAuthorizationCredentials
 from .jwt_bearer import JWTBearer

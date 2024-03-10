@@ -1,8 +1,8 @@
 from sqlalchemy import text
 
-from web_api_template.core.repository.manager.sqlalchemy.database import Database
-from web_api_template.core.logging import logger
-from web_api_template.domain.repository import HealthcheckRepository
+from {{ cookiecutter.project_slug }}.core.repository.manager.sqlalchemy.database import Database
+from {{ cookiecutter.project_slug }}.core.logging import logger
+from {{ cookiecutter.project_slug }}.domain.repository import HealthcheckRepository
 
 
 class HealthcheckRepositoryImpl(HealthcheckRepository):

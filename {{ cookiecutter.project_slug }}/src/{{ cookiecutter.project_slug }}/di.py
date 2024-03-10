@@ -3,19 +3,19 @@
 
 from pythondi import Provider
 
-from web_api_template.core.logging import logger
-from web_api_template.domain.repository import (
+from {{ cookiecutter.project_slug }}.core.logging import logger
+from {{ cookiecutter.project_slug }}.domain.repository import (
     HealthcheckRepository,
     PersonRepository,
     PolicyRepository,
 )
-from web_api_template.infrastructure.repositories.sqlalchemy.healthcheck_repository_impl import (
+from {{ cookiecutter.project_slug }}.infrastructure.repositories.sqlalchemy.healthcheck_repository_impl import (
     HealthcheckRepositoryImpl,
 )
-from web_api_template.infrastructure.repositories.sqlalchemy.person_repository_impl import (
+from {{ cookiecutter.project_slug }}.infrastructure.repositories.sqlalchemy.person_repository_impl import (
     PersonRepositoryImpl,
 )
-from web_api_template.infrastructure.repositories.sqlalchemy.policy_repository_impl import (
+from {{ cookiecutter.project_slug }}.infrastructure.repositories.sqlalchemy.policy_repository_impl import (
     PolicyRepositoryImpl,
 )
 

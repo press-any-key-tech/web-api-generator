@@ -4,12 +4,12 @@ from automapper import mapper
 from sqlalchemy import delete, desc, select, text, update
 from sqlalchemy.exc import IntegrityError
 
-from web_api_template.core.repository.manager.sqlalchemy.database import Database
-from web_api_template.core.logging import logger
-from web_api_template.core.repository.exceptions import ItemNotFoundException
-from web_api_template.domain.entities import Person, PersonFilter
-from web_api_template.domain.repository import PersonRepository
-from web_api_template.infrastructure.models.sqlalchemy import PersonModel
+from {{ cookiecutter.project_slug }}.core.repository.manager.sqlalchemy.database import Database
+from {{ cookiecutter.project_slug }}.core.logging import logger
+from {{ cookiecutter.project_slug }}.core.repository.exceptions import ItemNotFoundException
+from {{ cookiecutter.project_slug }}.domain.entities import Person, PersonFilter
+from {{ cookiecutter.project_slug }}.domain.repository import PersonRepository
+from {{ cookiecutter.project_slug }}.infrastructure.models.sqlalchemy import PersonModel
 
 
 class PersonRepositoryImpl(PersonRepository):

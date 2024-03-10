@@ -3,7 +3,7 @@ from typing import Optional
 
 from pydantic import BaseModel, EmailStr, Field
 
-from web_api_template.domain.types import PolicyStatusEnum
+from {{ cookiecutter.project_slug }}.domain.types import PolicyStatusEnum
 
 
 class PolicyFilter(BaseModel):

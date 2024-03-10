@@ -8,15 +8,15 @@ from fastapi.testclient import TestClient
 from ksuid import Ksuid
 from pythondi import Provider, configure
 
-from web_api_template.api.v1.persons.api_persons import api_router, get_list
-from web_api_template.core.repository.exceptions import ItemNotFoundException
-from web_api_template.di import include_di
-from web_api_template.domain.entities import Person, PersonFilter
-from web_api_template.domain.exceptions import PersonNotFoundException
+from {{ cookiecutter.project_slug }}.api.v1.persons.api_persons import api_router, get_list
+from {{ cookiecutter.project_slug }}.core.repository.exceptions import ItemNotFoundException
+from {{ cookiecutter.project_slug }}.di import include_di
+from {{ cookiecutter.project_slug }}.domain.entities import Person, PersonFilter
+from {{ cookiecutter.project_slug }}.domain.exceptions import PersonNotFoundException
 
 # To patch the method that makes the API call to repository
-PATCH_READ_SERVICE: str = "web_api_template.api.v1.persons.api.ReadService"
-PATCH_WRITE_SERVICE: str = "web_api_template.api.v1.persons.api.WriteService"
+PATCH_READ_SERVICE: str = "{{ cookiecutter.project_slug }}.api.v1.persons.api.ReadService"
+PATCH_WRITE_SERVICE: str = "{{ cookiecutter.project_slug }}.api.v1.persons.api.WriteService"
 
 # Test client configuration
 # Dependency injection (general)
@@ -31,11 +31,11 @@ client: TestClient = TestClient(app)
 
 @pytest.fixture(autouse=True)
 def disable_db_initialization():
-    with patch("web_api_template.core.settings.settings.INITIALIZE_DATABASE", False):
+    with patch("{{ cookiecutter.project_slug }}.core.settings.settings.INITIALIZE_DATABASE", False):
         yield
 
 
-@patch("web_api_template.core.auth.cognito.settings.settings.AUTH_DISABLED", True)
+@patch("{{ cookiecutter.project_slug }}.core.auth.cognito.settings.settings.AUTH_DISABLED", True)
 @pytest.mark.asyncio
 async def test_get_list_success():
     # Arrange
@@ -77,7 +77,7 @@ async def test_get_list_success():
     assert persons == expected_result
 
 
-@patch("web_api_template.core.auth.cognito.settings.settings.AUTH_DISABLED", True)
+@patch("{{ cookiecutter.project_slug }}.core.auth.cognito.settings.settings.AUTH_DISABLED", True)
 @pytest.mark.asyncio
 async def test_get_list_error():
 
@@ -102,7 +102,7 @@ async def test_get_list_error():
     assert response.json() == expected_error
 
 
-@patch("web_api_template.core.auth.cognito.settings.settings.AUTH_DISABLED", True)
+@patch("{{ cookiecutter.project_slug }}.core.auth.cognito.settings.settings.AUTH_DISABLED", True)
 @pytest.mark.asyncio
 async def test_get_by_id_success():
     # Arrange
@@ -135,7 +135,7 @@ async def test_get_by_id_success():
     assert person == expected_result
 
 
-@patch("web_api_template.core.auth.cognito.settings.settings.AUTH_DISABLED", True)
+@patch("{{ cookiecutter.project_slug }}.core.auth.cognito.settings.settings.AUTH_DISABLED", True)
 @pytest.mark.asyncio
 async def test_get_by_id_error_not_found():
 
@@ -157,7 +157,7 @@ async def test_get_by_id_error_not_found():
     assert response.json() == expected_error
 
 
-@patch("web_api_template.core.auth.cognito.settings.settings.AUTH_DISABLED", True)
+@patch("{{ cookiecutter.project_slug }}.core.auth.cognito.settings.settings.AUTH_DISABLED", True)
 @pytest.mark.asyncio
 async def test_create_success():
     # Arrange
@@ -197,7 +197,7 @@ async def test_create_success():
     assert person == expected_result
 
 
-@patch("web_api_template.core.auth.cognito.settings.settings.AUTH_DISABLED", True)
+@patch("{{ cookiecutter.project_slug }}.core.auth.cognito.settings.settings.AUTH_DISABLED", True)
 @pytest.mark.asyncio
 async def test_delete_by_id_success():
     # Arrange
@@ -221,7 +221,7 @@ async def test_delete_by_id_success():
     assert response.status_code == 204
 
 
-@patch("web_api_template.core.auth.cognito.settings.settings.AUTH_DISABLED", True)
+@patch("{{ cookiecutter.project_slug }}.core.auth.cognito.settings.settings.AUTH_DISABLED", True)
 @pytest.mark.asyncio
 async def test_delete_by_id_error_not_found():
 
@@ -243,7 +243,7 @@ async def test_delete_by_id_error_not_found():
     assert response.json() == expected_error
 
 
-@patch("web_api_template.core.auth.cognito.settings.settings.AUTH_DISABLED", True)
+@patch("{{ cookiecutter.project_slug }}.core.auth.cognito.settings.settings.AUTH_DISABLED", True)
 @pytest.mark.asyncio
 async def test_update_success():
     # Arrange
@@ -283,7 +283,7 @@ async def test_update_success():
     assert person == expected_result
 
 
-@patch("web_api_template.core.auth.cognito.settings.settings.AUTH_DISABLED", True)
+@patch("{{ cookiecutter.project_slug }}.core.auth.cognito.settings.settings.AUTH_DISABLED", True)
 @pytest.mark.asyncio
 async def test_update_error_not_found():
     # Arrange

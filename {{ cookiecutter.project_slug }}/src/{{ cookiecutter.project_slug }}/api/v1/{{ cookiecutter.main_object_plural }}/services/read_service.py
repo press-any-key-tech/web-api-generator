@@ -1,11 +1,11 @@
 from typing import List
 
-from web_api_template.core.di_injector import inject
-from web_api_template.core.logging import logger
-from web_api_template.core.repository.exceptions import ItemNotFoundException
-from web_api_template.domain.entities import Person, PersonFilter
-from web_api_template.domain.exceptions import PersonNotFoundException
-from web_api_template.domain.repository import PersonRepository
+from {{ cookiecutter.project_slug }}.core.di_injector import inject
+from {{ cookiecutter.project_slug }}.core.logging import logger
+from {{ cookiecutter.project_slug }}.core.repository.exceptions import ItemNotFoundException
+from {{ cookiecutter.project_slug }}.domain.entities import Person, PersonFilter
+from {{ cookiecutter.project_slug }}.domain.exceptions import PersonNotFoundException
+from {{ cookiecutter.project_slug }}.domain.repository import PersonRepository
 
 
 class ReadService:

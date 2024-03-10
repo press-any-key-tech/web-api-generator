@@ -3,8 +3,8 @@ from typing import cast
 from ksuid import Ksuid
 from sqlalchemy import Column, Enum, ForeignKey, String
 
-from web_api_template.core.repository.model.sqlalchemy import Base, BaseModel
-from web_api_template.domain.types.policy_status_enum import PolicyStatusEnum
+from {{ cookiecutter.project_slug }}.core.repository.model.sqlalchemy import Base, BaseModel
+from {{ cookiecutter.project_slug }}.domain.types.policy_status_enum import PolicyStatusEnum
 
 
 class PolicyModel(Base, BaseModel):

@@ -5,7 +5,7 @@ from uuid import UUID
 from sqlalchemy import asc, desc, func, or_
 from sqlalchemy.orm import Query, Session
 
-from web_api_template.core.logging import logger
+from {{ cookiecutter.project_slug }}.core.logging import logger
 
 
 class DbPaginator:

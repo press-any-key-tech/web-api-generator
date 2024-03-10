@@ -1,11 +1,11 @@
 from typing import List
 
-from web_api_template.core.di_injector import inject
-from web_api_template.core.logging import logger
-from web_api_template.core.repository.exceptions import ItemNotFoundException
-from web_api_template.domain.entities import Policy, PolicyFilter
-from web_api_template.domain.exceptions import PolicyNotFoundException
-from web_api_template.domain.repository import PolicyRepository
+from {{ cookiecutter.project_slug }}.core.di_injector import inject
+from {{ cookiecutter.project_slug }}.core.logging import logger
+from {{ cookiecutter.project_slug }}.core.repository.exceptions import ItemNotFoundException
+from {{ cookiecutter.project_slug }}.domain.entities import Policy, PolicyFilter
+from {{ cookiecutter.project_slug }}.domain.exceptions import PolicyNotFoundException
+from {{ cookiecutter.project_slug }}.domain.repository import PolicyRepository
 
 
 class ReadService:

@@ -2,9 +2,9 @@ from typing import List, Optional
 
 from pydantic import BaseModel, EmailStr, Field, field_validator
 
-from web_api_template.domain.entities import Address
-from web_api_template.domain.entities.policy import Policy
-from web_api_template.domain.entities.policy_base import PolicyBase
+from {{ cookiecutter.project_slug }}.domain.entities import Address
+from {{ cookiecutter.project_slug }}.domain.entities.policy import Policy
+from {{ cookiecutter.project_slug }}.domain.entities.policy_base import PolicyBase
 
 
 class PolicyCreate(PolicyBase):

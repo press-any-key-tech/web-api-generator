@@ -5,15 +5,15 @@ import pytest
 from ksuid import Ksuid
 from sqlalchemy.exc import IntegrityError
 
-from web_api_template.domain.entities import Person, PersonFilter
-from web_api_template.infrastructure.models.sqlalchemy import PersonModel
-from web_api_template.infrastructure.repositories.sqlalchemy import PersonRepositoryImpl
+from {{ cookiecutter.project_slug }}.domain.entities import Person, PersonFilter
+from {{ cookiecutter.project_slug }}.infrastructure.models.sqlalchemy import PersonModel
+from {{ cookiecutter.project_slug }}.infrastructure.repositories.sqlalchemy import PersonRepositoryImpl
 
 PERSON_ID: str = str(Ksuid())
 
 
 @patch(
-    "web_api_template.core.repository.manager.sqlalchemy.database.Database.get_db_session",
+    "{{ cookiecutter.project_slug }}.core.repository.manager.sqlalchemy.database.Database.get_db_session",
     new_callable=MagicMock(),
 )
 @pytest.mark.asyncio
@@ -35,7 +35,7 @@ async def test_create_success(mock_database):
 
 
 # @patch(
-#     "web_api_template.core.repository.manager.sqlalchemy.database.Database.get_db_session",
+#     "{{ cookiecutter.project_slug }}.core.repository.manager.sqlalchemy.database.Database.get_db_session",
 #     new_callable=MagicMock(),
 # )
 # @pytest.mark.asyncio
@@ -63,7 +63,7 @@ async def test_create_success(mock_database):
 
 
 # @patch(
-#     "web_api_template.core.repository.manager.sqlalchemy.database.Database.get_db_session",
+#     "{{ cookiecutter.project_slug }}.core.repository.manager.sqlalchemy.database.Database.get_db_session",
 #     new_callable=MagicMock(),
 # )
 # @pytest.mark.asyncio
@@ -97,14 +97,14 @@ async def test_create_success(mock_database):
 # # def mock_db_session(mock_session):
 # #     # Mock para Database.get_db_session
 # #     with patch(
-# #         "web_api_template.core.repository.manager.sqlalchemy.database.Database.get_db_session",
+# #         "{{ cookiecutter.project_slug }}.core.repository.manager.sqlalchemy.database.Database.get_db_session",
 # #         return_value=mock_session,
 # #     ) as mock:
 # #         yield mock
 
 
 # # # @patch(
-# # #     "web_api_template.core.repository.manager.sqlalchemy.database.Database.get_db_session",
+# # #     "{{ cookiecutter.project_slug }}.core.repository.manager.sqlalchemy.database.Database.get_db_session",
 # # #     new_callable=MagicMock(),
 # # # )
 # # @pytest.mark.asyncio
@@ -133,7 +133,7 @@ async def test_create_success(mock_database):
 
 
 # # @patch(
-# #     "web_api_template.core.repository.manager.sqlalchemy.database.Database.get_db_session",
+# #     "{{ cookiecutter.project_slug }}.core.repository.manager.sqlalchemy.database.Database.get_db_session",
 # #     new_callable=MagicMock(),
 # # )
 # # @pytest.mark.asyncio

@@ -6,12 +6,12 @@ from ksuid import Ksuid
 from mock import AsyncMock, patch
 from pydantic import ValidationError
 
-from web_api_template.api.v1.persons.services import ReadService, WriteService
-from web_api_template.core.auth.cognito.user import User
-from web_api_template.core.repository.exceptions import ItemNotFoundException
-from web_api_template.domain.entities import Person, PersonFilter
-from web_api_template.domain.exceptions import PersonNotFoundException
-from web_api_template.infrastructure.models.sqlalchemy import PersonModel
+from {{ cookiecutter.project_slug }}.api.v1.persons.services import ReadService, WriteService
+from {{ cookiecutter.project_slug }}.core.auth.cognito.user import User
+from {{ cookiecutter.project_slug }}.core.repository.exceptions import ItemNotFoundException
+from {{ cookiecutter.project_slug }}.domain.entities import Person, PersonFilter
+from {{ cookiecutter.project_slug }}.domain.exceptions import PersonNotFoundException
+from {{ cookiecutter.project_slug }}.infrastructure.models.sqlalchemy import PersonModel
 
 PERSON_ID: str = str(Ksuid())
 

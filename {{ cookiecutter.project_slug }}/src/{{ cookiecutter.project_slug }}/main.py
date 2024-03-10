@@ -4,12 +4,12 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pythondi import Provider, configure
 
-from web_api_template.core.logging import logger
-from web_api_template.core.repository.manager.sqlalchemy.database import Database
-from web_api_template.core.repository.model.sqlalchemy import metadata
-from web_api_template.core.settings import settings
-from web_api_template.di import include_di
-from web_api_template.routes import include_routers
+from {{ cookiecutter.project_slug }}.core.logging import logger
+from {{ cookiecutter.project_slug }}.core.repository.manager.sqlalchemy.database import Database
+from {{ cookiecutter.project_slug }}.core.repository.model.sqlalchemy import metadata
+from {{ cookiecutter.project_slug }}.core.settings import settings
+from {{ cookiecutter.project_slug }}.di import include_di
+from {{ cookiecutter.project_slug }}.routes import include_routers
 
 
 def include_cors(app: FastAPI):
@@ -41,7 +41,7 @@ async def lifespan(app: FastAPI):
 
         # TODO: check for the existence of related files for the database (e.g. core.api.repository.manager.sqlalchemy.database)
 
-        from web_api_template.core.repository.manager.sqlalchemy.settings import (
+        from {{ cookiecutter.project_slug }}.core.repository.manager.sqlalchemy.settings import (
             settings as sqlalchemy_settings,
         )
 
@@ -52,7 +52,7 @@ async def lifespan(app: FastAPI):
 
             logger.debug("Database initialized")
 
-        from web_api_template.core.repository.model.dynamodb.settings import (
+        from {{ cookiecutter.project_slug }}.core.repository.model.dynamodb.settings import (
             settings as dynamodb_settings,
         )
 

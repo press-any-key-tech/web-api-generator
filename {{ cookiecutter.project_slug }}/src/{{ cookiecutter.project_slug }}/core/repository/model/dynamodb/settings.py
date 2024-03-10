@@ -5,7 +5,7 @@ from typing import Dict, List
 
 from starlette.config import Config
 
-from web_api_template.core.settings import Settings
+from {{ cookiecutter.project_slug }}.core.settings import Settings
 
 config = Config()
 

@@ -2,7 +2,7 @@ from typing import List
 
 from fastapi import Depends, HTTPException
 
-from web_api_template.core.logging import logger
+from {{ cookiecutter.project_slug }}.core.logging import logger
 
 from .settings import settings
 from .user import User

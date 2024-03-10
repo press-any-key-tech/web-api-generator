@@ -5,8 +5,8 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from starlette.requests import Request
 
-from web_api_template.core.api import ApiMessage
-from web_api_template.core.settings import settings
+from {{ cookiecutter.project_slug }}.core.api import ApiMessage
+from {{ cookiecutter.project_slug }}.core.settings import settings
 
 from .response import HealthCheckResponse
 from .services import HealthcheckService

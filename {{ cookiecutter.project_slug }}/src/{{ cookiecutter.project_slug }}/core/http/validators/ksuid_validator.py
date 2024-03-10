@@ -2,7 +2,7 @@ import re
 
 from fastapi import HTTPException, Path, Query, status
 
-from web_api_template.core.domain.validators import ksuid_validator
+from {{ cookiecutter.project_slug }}.core.domain.validators import ksuid_validator
 
 
 def ksuid_query_validator(

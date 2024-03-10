@@ -1,7 +1,7 @@
 from abc import ABCMeta, abstractmethod
 from typing import List, Optional
 
-from web_api_template.domain.entities import Policy, PolicyFilter
+from {{ cookiecutter.project_slug }}.domain.entities import Policy, PolicyFilter
 
 
 class PolicyRepository(metaclass=ABCMeta):

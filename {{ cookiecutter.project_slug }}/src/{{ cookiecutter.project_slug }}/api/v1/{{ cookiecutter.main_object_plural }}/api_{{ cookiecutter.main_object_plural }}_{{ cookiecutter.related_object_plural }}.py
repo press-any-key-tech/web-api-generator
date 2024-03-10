@@ -10,24 +10,24 @@ from pydantic import BaseModel
 from starlette.requests import Request
 from starlette.responses import Response
 
-from web_api_template.api.v1.persons.services import ReadService, WriteService
-from web_api_template.api.v1.policies.services import ReadService as PolicyReadService
-from web_api_template.api.v1.policies.services import WriteService as PolicyWriteService
-from web_api_template.core.api import ApiMessage
-from web_api_template.core.api.common_query_model import CommonQueryModel
-from web_api_template.core.api.utils import get_content_type
-from web_api_template.core.auth.cognito.group_checker import GroupChecker
-from web_api_template.core.auth.cognito.user import User
-from web_api_template.core.auth.cognito.utils import get_current_active_user
-from web_api_template.core.http.validators import (
+from {{ cookiecutter.project_slug }}.api.v1.persons.services import ReadService, WriteService
+from {{ cookiecutter.project_slug }}.api.v1.policies.services import ReadService as PolicyReadService
+from {{ cookiecutter.project_slug }}.api.v1.policies.services import WriteService as PolicyWriteService
+from {{ cookiecutter.project_slug }}.core.api import ApiMessage
+from {{ cookiecutter.project_slug }}.core.api.common_query_model import CommonQueryModel
+from {{ cookiecutter.project_slug }}.core.api.utils import get_content_type
+from {{ cookiecutter.project_slug }}.core.auth.cognito.group_checker import GroupChecker
+from {{ cookiecutter.project_slug }}.core.auth.cognito.user import User
+from {{ cookiecutter.project_slug }}.core.auth.cognito.utils import get_current_active_user
+from {{ cookiecutter.project_slug }}.core.http.validators import (
     ksuid_path_validator,
     ksuid_query_validator,
 )
-from web_api_template.core.logging import logger
-from web_api_template.domain.entities import Person, PersonCreate, PersonFilter
-from web_api_template.domain.entities.policy import Policy
-from web_api_template.domain.entities.policy_create import PolicyCreate
-from web_api_template.domain.exceptions import (
+from {{ cookiecutter.project_slug }}.core.logging import logger
+from {{ cookiecutter.project_slug }}.domain.entities import Person, PersonCreate, PersonFilter
+from {{ cookiecutter.project_slug }}.domain.entities.policy import Policy
+from {{ cookiecutter.project_slug }}.domain.entities.policy_create import PolicyCreate
+from {{ cookiecutter.project_slug }}.domain.exceptions import (
     PersonHasActivePoliciesException,
     PersonNotFoundException,
     PolicyNotFoundException,
