@@ -1,0 +1,26 @@
+{
+    "project_name": "Web API Project",
+    "project_slug":  "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
+    "project_description": "Test project for web api",
+    "author": "Linus <impalah@gmail.com>",
+    "copyright_year": "{% now 'utc', '%Y' %}",
+    "license":  [
+      "MIT",
+      "GPL-3.0",
+      "Apache-2.0",
+      "Proprietary"
+    ],
+    "main_object": "thing",
+    "main_object_plural": "things",
+    "related_object": "stuff",
+    "related_object_plural": "stuff",
+    "database": [
+      "sqlalchemy",
+      "dynamodb"
+    ],
+    "auth_provider": [
+      "cognito"
+    ],
+    "use_docker": "y"
+
+  }
